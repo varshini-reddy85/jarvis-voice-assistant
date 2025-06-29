@@ -5,7 +5,8 @@ from datetime import datetime, timedelta
 utc_now = datetime.utcnow()
 ist_now = utc_now + timedelta(hours=5, minutes=30)
 hour = ist_now.hour
-st.write(f"🕒 Current IST Hour = {hour}")
+minutes = ist_now.minute
+st.write(f"🕒 Current IST Hour:minutes = {hour}:{minutes:02d}")
 
 
 # 👋 Greet based on IST time
