@@ -9,7 +9,7 @@ hour = ist_now.hour
 # 👋 Greet based on IST time
 if 0 <= hour < 12:
     greet = "Good morning"
-elif 12 <= hour < 18:
+elif 12 <= hour < 16:
     greet = "Good afternoon"
 else:
     greet = "Good evening"
