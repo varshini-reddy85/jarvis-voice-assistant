@@ -1,7 +1,5 @@
 import streamlit as st
-import webbrowser
 import datetime
-import subprocess
 
 # Default Name
 user_name = "Varshini"
@@ -15,51 +13,40 @@ elif 12 <= hour < 18:
 else:
     greet = "Good evening"
 
-st.set_page_config(page_title="JARVIS Assistant", page_icon="🤖")
+# UI
+st.set_page_config(page_title="JARVIS - Assistant", page_icon="🧠")
 st.title("🧠 JARVIS - Your Python Assistant")
 st.markdown(f"👋 {greet}, **{user_name}**! Type your command below:")
 
-# Text input from user
-command = st.text_input("🎤 Enter your command:")
+# Input box
+command = st.text_input("🔑 Enter your command:")
 
 if st.button("Run") and command:
-    response = ""
+    command = command.lower()
 
-    if 'exit' in command:
-        response = f"Goodbye {user_name}, see you soon! 👋"
-    
-    elif 'open youtube' in command:
-        webbrowser.open("https://www.youtube.com")
-        response = "📺 Opening YouTube"
+    if 'youtube' in command:
+        st.success("✅ Opening YouTube...")
+        st.markdown("[Click here to open YouTube](https://www.youtube.com)", unsafe_allow_html=True)
 
-    elif 'open google' in command:
-        webbrowser.open("https://www.google.com")
-        response = "🔍 Opening Google"
+    elif 'google' in command:
+        st.success("✅ Opening Google...")
+        st.markdown("[Click here to open Google](https://www.google.com)", unsafe_allow_html=True)
 
-    elif 'open whatsapp' in command:
-        webbrowser.open("https://web.whatsapp.com")
-        response = "💬 Opening WhatsApp Web"
+    elif 'whatsapp' in command:
+        st.success("✅ Opening WhatsApp Web...")
+        st.markdown("[Click here to open WhatsApp](https://web.whatsapp.com)", unsafe_allow_html=True)
 
-    elif 'open github' in command:
-        webbrowser.open("https://github.com")
-        response = "🐙 Opening GitHub"
+    elif 'github' in command:
+        st.success("✅ Opening GitHub...")
+        st.markdown("[Click here to open GitHub](https://github.com)", unsafe_allow_html=True)
 
-    elif 'play music' in command or 'open spotify' in command:
-        webbrowser.open("https://open.spotify.com/")
-        response = "🎵 Opening Spotify Web Player"
+    elif 'spotify' in command or 'music' in command:
+        st.success("🎵 Opening Spotify Web Player...")
+        st.markdown("[Click here to open Spotify](https://open.spotify.com)", unsafe_allow_html=True)
 
-    elif 'time' in command or 'what is the time' in command:
+    elif 'time' in command:
         time_now = datetime.datetime.now().strftime("%I:%M %p")
-        response = f"⏰ The time is {time_now}"
-
-    elif 'open notepad' in command:
-        try:
-            subprocess.Popen(["notepad.exe"])
-            response = "📝 Opening Notepad"
-        except:
-            response = "⚠️ Notepad is not supported on this platform."
+        st.info(f"🕒 The time is: **{time_now}**")
 
     else:
-        response = "❓ Sorry, I didn't understand that command."
-
-    st.success(response)
+        st.warning("🤖 Sorry, I didn't understand that command.")
