@@ -8,7 +8,7 @@ user_name = "Varshini"
 hour = datetime.datetime.now().hour
 if 0 <= hour < 12:
     greet = "Good morning"
-elif 12 <= hour < 18:
+elif 12 <= hour < 15:
     greet = "Good afternoon"
 else:
     greet = "Good evening"
