@@ -1,0 +1,6 @@
+gtts
+SpeechRecognition
+pywhatkit
+datetime
+webbrowser
+os
