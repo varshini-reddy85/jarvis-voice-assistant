@@ -4,3 +4,4 @@ pywhatkit
 datetime
 webbrowser
 os
+streamlit
